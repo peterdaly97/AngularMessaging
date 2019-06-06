@@ -1,0 +1,7 @@
+<h2>{{ title }}</h2>
+<ul>
+  <li *ngFor="let message of messages">
+    <h3>{{message.owner}}</h3>
+    <p>{{message.message}}</p>
+  </li>
+</ul>
