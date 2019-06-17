@@ -1,7 +1,9 @@
 <h2>{{ title }}</h2>
-<ul>
+<ul style="list-style: none;">
   <li *ngFor="let message of messages">
     <h3>{{message.owner}}</h3>
     <p>{{message.message}}</p>
   </li>
 </ul>
+<input [(ngModel)]="newMessage" placeholder="Enter Message"/>
+<button (click)="addMessage()">Send</button>
