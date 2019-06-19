@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Message } from '../message';
+import { Conversation } from '../conversation';
 
 @Component({
   selector: 'app-conversation',
@@ -8,8 +9,12 @@ import { Message } from '../message';
 })
 export class ConversationComponent implements OnInit {
 
-  messages: Message[] = [];
-
+  conversation: Conversation = {
+    id: 0,
+    name: 'Chat Name',
+    messages: []
+  };
+  
   newMessage: string = '';
 
   id: number = 0;
@@ -25,15 +30,16 @@ export class ConversationComponent implements OnInit {
   }
 
   getMessages(): void {
-    this.messages = [
+    this.conversation.messages = [
       { id: 0, owner: 'peter', message: 'How are you?' },
       { id: 1, owner: 'mike', message: 'Good, you?'}
     ]
   }
 
   addMessage() : void {
+
     this.message.message = this.newMessage;
-    this.messages.push(this.message);
+    this.conversation.messages.push(this.message);
     this.messageid++;
     this.message = {id: this.messageid, owner: 'peter', message: ''};
     this.newMessage = '';

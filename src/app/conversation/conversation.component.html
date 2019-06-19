@@ -1,6 +1,6 @@
 <h2>{{ title }}</h2>
 <ul style="list-style: none;">
-  <li *ngFor="let message of messages">
+  <li *ngFor="let message of conversation.messages">
     <h3>{{message.owner}}</h3>
     <p>{{message.message}}</p>
   </li>

@@ -1,3 +1,8 @@
-<p>
-  dashboard works!
-</p>
+<h2>{{ title }}</h2>
+<ul style="list-style: none;">
+  <li *ngFor="let conversation of conversations">
+    <button routerLink="/convo/{{conversation.id}}">
+      {{conversation.name}}
+    </button>
+  </li>
+</ul>
