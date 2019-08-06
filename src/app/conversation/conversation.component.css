@@ -1,0 +1,27 @@
+input {
+    padding:5px; 
+    border:2px solid #ccc; 
+    -webkit-border-radius: 50px;
+    margin-right: 30px;
+    background: -webkit-linear-gradient(-45deg, #35577D, #141E30);
+    box-shadow: 0 1px 0 #666, 0 5px 0 #444, 0 6px 6px rgba(0,0,0,0.6);  
+    color: beige;
+}
+
+.home {
+    background: -webkit-linear-gradient(-45deg, #35577D, #141E30);
+    box-shadow: 0 1px 0 #666, 0 5px 0 #444, 0 6px 6px rgba(0,0,0,0.6);  
+    -webkit-border-radius: 50%;
+    color: beige;
+}
+
+.send {
+    background: -webkit-linear-gradient(-45deg, #35577D, #141E30);
+    box-shadow: 0 1px 0 #666, 0 5px 0 #444, 0 6px 6px rgba(0,0,0,0.6);  
+    -webkit-border-radius: 50%;
+    color: beige;
+}
+
+.inputCentre {
+    text-align: center;
+}

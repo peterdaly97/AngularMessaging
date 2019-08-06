@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Message } from '../message';
 import { Conversation } from '../conversation';
+import {MessagesService} from '../messages.service';
+
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-conversation',
@@ -23,17 +26,19 @@ export class ConversationComponent implements OnInit {
 
   message: Message = {id: this.messageid, owner: 'peter', message: ''};
 
-  constructor() { }
+  constructor(
+    private messageService: MessagesService,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit() {
     this.getMessages();
   }
 
   getMessages(): void {
-    this.conversation.messages = [
-      { id: 0, owner: 'peter', message: 'How are you?' },
-      { id: 1, owner: 'mike', message: 'Good, you?'}
-    ]
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.messageService.getMessages(id)
+    .subscribe(messages => this.conversation.messages = messages);
   }
 
   addMessage() : void {

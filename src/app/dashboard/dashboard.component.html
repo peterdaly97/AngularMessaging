@@ -1,8 +1,10 @@
 <h2>{{ title }}</h2>
 <ul style="list-style: none;">
   <li *ngFor="let conversation of conversations">
-    <button routerLink="/convo/{{conversation.id}}">
-      {{conversation.name}}
-    </button>
+    <div class='buttonDiv'>
+        <button routerLink="/convo/{{conversation.id}}">
+          {{conversation.name}}
+        </button>
+    </div>
   </li>
 </ul>

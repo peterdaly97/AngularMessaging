@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Conversation } from '../conversation';
+import {MessagesService} from '../messages.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,17 +12,17 @@ export class DashboardComponent implements OnInit {
   title: string = 'All Chats!'
   conversations: Conversation[];
 
-  constructor() { }
+  constructor(
+    private messageService: MessagesService
+  ) { }
 
   ngOnInit() {
     this.getConversations();
   }
 
   getConversations(): void {
-    this.conversations = [
-      { id: 0, name: 'Chat With Mike', messages: [] },
-      { id: 1, name: 'Chat With Dave', messages: []}
-    ]
+    this.messageService.getConversations()
+      .subscribe(conversations => this.conversations = conversations);
   }
 
 }

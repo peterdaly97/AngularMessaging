@@ -1,9 +1,16 @@
 <h2>{{ title }}</h2>
+<button class="home" routerLink="/dashboard">
+  Home
+</button>
 <ul style="list-style: none;">
   <li *ngFor="let message of conversation.messages">
     <h3>{{message.owner}}</h3>
     <p>{{message.message}}</p>
   </li>
 </ul>
-<input [(ngModel)]="newMessage" placeholder="Enter Message"/>
-<button (click)="addMessage()">Send</button>
+<div class="inputCentre">
+    <input [(ngModel)]="newMessage" placeholder="Enter Message"/>
+    <button class="send" (click)="addMessage()">Send</button>
+</div>
+
+
