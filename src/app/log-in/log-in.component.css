@@ -1,0 +1,32 @@
+h4 {
+    font-size: 42px;
+    padding-bottom: 0%;
+    margin-bottom: 0%;
+}
+
+.LogIn {
+  margin-top: 5%;
+  margin-bottom: 5%;
+  border: 2px solid grey;
+  border-radius: 4px;
+  width: 90%;
+  height: 25px;
+}
+
+.SubmitForm {
+    border:2px solid #1978ab;
+    text-shadow: 0.5px 0.5px black;
+    width: 90%;
+    height: 40px;
+}
+
+.LogInHeader {
+    position: absolute;
+    top: 8%;
+    left: 25%;
+    font-size: 64px;
+}
+
+.LogIn:focus {
+    border-radius: 10px;
+}
