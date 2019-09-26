@@ -1,9 +1,9 @@
 <div class="LogInHeader">
-  <form>
+  <form (submit)="logIn($event)">
     <h4>Username:</h4>
-    <input class="LogIn" type="text"/>
+    <input name="username" class="LogIn" type="text"/>
     <h4>Password:</h4>
-    <input class="LogIn" type="password"/>
-    <input class="SubmitForm" type="submit" value="Log In" (click)="logIn()"/>
+    <input name="password" class="LogIn" type="password"/>
+    <input class="SubmitForm" type="submit" value="Log In"/>
   </form>
 </div>
