@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Message } from '../message';
 import { Conversation } from '../conversation';
 import {MessagesService} from '../messages.service';
+import {UsersService} from '../users.service';
 
 import { ActivatedRoute } from '@angular/router';
 
@@ -15,6 +16,7 @@ export class ConversationComponent implements OnInit {
   conversation: Conversation = {
     id: 0,
     name: 'Chat Name',
+    members: [],
     messages: []
   };
   
@@ -24,10 +26,11 @@ export class ConversationComponent implements OnInit {
 
   messageid: number = 0;
 
-  message: Message = {id: this.messageid, owner: 'peter', message: ''};
+  message: Message = {id: this.messageid, owner: this.uService.username, message: ''};
 
   constructor(
     private messageService: MessagesService,
+    private uService: UsersService,
     private route: ActivatedRoute
   ) { }
 

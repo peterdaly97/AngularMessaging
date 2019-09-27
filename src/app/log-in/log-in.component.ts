@@ -24,8 +24,10 @@ export class LogInComponent implements OnInit {
   }
 
   logIn(event: Event): void {
+
     this.username = event.target.username.value;
     this.password = event.target.password.value;
+    
 
     if(this.userService.checkUser(this.username, this.password)) {
       this.router.navigateByUrl('/dashboard');

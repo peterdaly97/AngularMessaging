@@ -11,13 +11,22 @@ import { CONVERSATIONS } from './mock-conversations';
 export class MessagesService {
 
   convos: Conversation[] = CONVERSATIONS;
+  personalConvos: Conversation[] = [];
 
   constructor() { 
     
   }
 
-  getConversations() : Observable<Conversation[]> {
-    return of(this.convos);
+  getConversations(uName : string) : Observable<Conversation[]> {
+    this.personalConvos = [];
+    for(var i = 0; i < this.convos.length; i++) {
+      var memberList = this.convos[i].members;
+      if(memberList.includes(uName)) {
+        this.personalConvos.push(this.convos[i]);
+      }
+    }
+
+    return of(this.personalConvos);
   }
 
   getMessages(id : number) : Observable<Message[]> {

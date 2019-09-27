@@ -9,6 +9,7 @@ import { USERS } from './mock-users';
 export class UsersService {
 
   users: User[] = USERS;
+  username: string;
 
   constructor() { }
 
@@ -16,6 +17,7 @@ export class UsersService {
 
     for(var i = 0; i < this.users.length; i++) {
       if(this.users[i].username == uName && this.users[i].password == pName) {
+        this.username = uName;
         return true;
       }
     }
