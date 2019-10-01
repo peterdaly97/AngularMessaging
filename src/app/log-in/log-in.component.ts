@@ -21,20 +21,27 @@ export class LogInComponent implements OnInit {
   }
 
   ngOnInit() {
+    
   }
 
   logIn(event: Event): void {
 
-    this.username = event.target.username.value;
-    this.password = event.target.password.value;
-    
+    var result = false;
 
-    if(this.userService.checkUser(this.username, this.password)) {
+    this.username = event.target[0].value;
+    this.password = event.target[1].value;
+    
+    var response = this.userService.checkUser(this.username, this.password);
+    
+    var data = response.subscribe(data => console.log(data));
+    if(data) {
       this.router.navigateByUrl('/dashboard');
     }
-    else{
-      console.log("Failed");
+    else {
+      console.log('Failed');
     }
+    
+    
     
   }
 
