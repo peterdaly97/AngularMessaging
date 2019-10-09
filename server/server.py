@@ -19,21 +19,16 @@ def api_LogIn():
     password = request.get_json()['password']
    
     if storedU == username and storedP == password :
-        print('Ding')
         # Return that password was accepted
         accept = True
-        return Response(
-            json.dumps(accept),
-            mimetype='application/json'
-        )
     else :
 
         # Return that password wasn't accepted
         accept = False
-        return Response(
+    return Response(
             json.dumps(accept),
             mimetype='application/json'
-        )
+        )    
 
 @app.route('/Test', methods=['GET'])
 def api_Test():

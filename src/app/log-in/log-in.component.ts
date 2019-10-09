@@ -11,13 +11,14 @@ export class LogInComponent implements OnInit {
 
   username: string;
   password: string;
+  loading: boolean;
   
 
   constructor(
     private userService: UsersService,
     private router: Router
   ) { 
-    
+    this.loading = false;
   }
 
   ngOnInit() {
@@ -30,19 +31,19 @@ export class LogInComponent implements OnInit {
 
     this.username = event.target[0].value;
     this.password = event.target[1].value;
-    
-    var response = this.userService.checkUser(this.username, this.password);
-    
-    var data = response.subscribe(data => console.log(data));
-    if(data) {
+    this.loading = true;
+    var response = this.userService.checkUser(
+      this.username, this.password).then(
+        () => this.changeScreen(response)
+      );
+  }
+
+
+  changeScreen(res : Promise<object>) : void {
+    this.loading = false;
+    if(this.userService.loggedIn) {
       this.router.navigateByUrl('/dashboard');
     }
-    else {
-      console.log('Failed');
-    }
-    
-    
-    
   }
 
 }

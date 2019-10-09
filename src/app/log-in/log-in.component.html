@@ -4,6 +4,7 @@
     <input name="username" class="LogIn" type="text"/>
     <h4>Password:</h4>
     <input name="password" class="LogIn" type="password"/>
-    <input class="SubmitForm" type="submit" value="Log In"/>
+    <input class="SubmitForm" type="submit" value="Log In" *ngIf="!loading"/>
+    <input class="SubmitForm" type="submit" value="Loading" *ngIf="loading"/>
   </form>
 </div>
